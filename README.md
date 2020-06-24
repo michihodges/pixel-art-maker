@@ -1,2 +1,2 @@
 # pixel_art_maker
-A pixel art maker.
+Interact with the DOM to set a customizable canvas and create pixel art.
