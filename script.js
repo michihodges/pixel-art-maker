@@ -12,14 +12,6 @@ function makeGrid() {
     // RESET GRID
     canvas.innerHTML = ''; // without resetting innerHTML to an empty string, submitted input values will add further grids
 
-    // EVENT DELEGATION
-    function respondToTheClick(e) {
-        if (e.target.nodeName === 'TD') {
-            console.log('A td element was clicked.');
-            e.target.style.backgroundColor = color.value;
-        }
-    }
-
     // BUILD GRID
     for (let row = 0; row < height; row++) { // loop over submitted input value height
         const tableRow = document.createElement('tr'); // create appropriate number of tr elements
@@ -29,7 +21,17 @@ function makeGrid() {
         }
         canvas.appendChild(tableRow); // adds trs
     }
-    canvas.addEventListener('click', respondToTheClick);
+
+    // EVENT LISTENER
+    canvas.addEventListener('click', respondToTheClick); // 1 event listener for all grid elements
+
+    // EVENT DELEGATION
+    function respondToTheClick(e) {
+        if (e.target.nodeName === 'TD') { // specifically target each td element for event listener to fire
+            console.log('A td element was clicked.'); // check that only a td element has been clicked
+            e.target.style.backgroundColor = color.value; // change target style background color
+        }
+    }
 }
 
 // SUBMIT
