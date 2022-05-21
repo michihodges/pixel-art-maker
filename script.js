@@ -24,14 +24,14 @@
         }
 
         // EVENT LISTENER
-        canvas.addEventListener('click', respondToTheClick); // 1 event listener for all grid elements
+        canvas.addEventListener('click', respondToTheClick); // 1 event listener delegated for all grid elements
+    }
 
-        // EVENT DELEGATION
-        function respondToTheClick(e) {
-            if (e.target.nodeName === 'TD') { // specifically target each td element for event listener to fire
-                console.log('A td element was clicked.'); // check that only a td element has been clicked
-                e.target.style.backgroundColor = color.value; // change target style background color
-            }
+    // EVENT
+    function respondToTheClick(e) {
+        if (e.target.nodeName === 'TD') { // specifically target each td element for event listener to fire
+            console.log('A td element was clicked.'); // check that only a td element has been clicked
+            e.target.style.backgroundColor = color.value; // change target style background color
         }
     }
 
